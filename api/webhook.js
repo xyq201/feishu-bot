@@ -3,7 +3,6 @@
  */
 
 const axios = require('axios');
-const { getAIReply } = require('../src/ai');
 
 // 配置
 const CONFIG = {
@@ -97,7 +96,7 @@ module.exports = async (req, res) => {
           userMessage = message.content;
         }
 
-        const aiReply = await getAIReply(userMessage);
+        const aiReply = `收到你的消息：${userMessage}`;
 
         await sendMessage(
           sender.sender_id.open_id,
