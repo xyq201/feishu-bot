@@ -1,28 +1,7 @@
 {
-  "version": 2,
-  "name": "feishu-bot",
-  "builds": [
-    {
-      "src": "api/webhook.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "api/health.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/webhook",
-      "dest": "/api/webhook.js"
-    },
-    {
-      "src": "/health",
-      "dest": "/api/health.js"
-    },
-    {
-      "src": "/",
-      "dest": "/api/health.js"
-    }
+  "rewrites": [
+    { "source": "/webhook", "destination": "/api/webhook" },
+    { "source": "/health", "destination": "/api/health" },
+    { "source": "/", "destination": "/api/health" }
   ]
 }
